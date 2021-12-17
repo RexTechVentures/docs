@@ -107,6 +107,7 @@ If necessary, you may also use the supplied access bearer token to retrieve the 
 Authorization: Bearer {access token}
 GET/POST https://datarock.com/userinfo
 ```
+
 | Parameter | Definition |
 | — | — |
 | `Authorization` | A standard Bearer authorization header that includes the provided access token. |
