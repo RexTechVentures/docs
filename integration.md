@@ -1,3 +1,4 @@
+
 # DataRock Integration Guide
 
 ## I. Initiate OAuth2 Single-SignOn
@@ -5,7 +6,7 @@ The first step in the process is to initiate an OAuth2 SSO process with DataRock
 
 To initiate OAuth2 SSO, direct the client to the following page:
 ```
-GET https://datarock.com/authorize?
+GET https://auth.datarock.com/authorize?
   response_type=code&
   client_id={my client id}&
   redirect_uri={my login handler URL}&
@@ -40,7 +41,7 @@ Once the SSO flow as completed successfully and your login handler has received 
 
 ```
 Authorization: Basic {my client's id and secret}
-POST https://datarock.com/token
+POST https://api.datarock.com/token
   grant_type=authorization_code&
   code={the received authorization code}&
   code_verifier={the value used to generate the `code_challenge`}&
@@ -80,7 +81,7 @@ The provided ID token is a JWT that contains several useful pieces of informatio
 
 ```
 {
-	"iss":"https://datarock.com",
+	"iss":"https://auth.datarock.com",
 	"sub":"{the user id}",
 	"aud":"{your client id}"
 	"exp":"{timestamp when token is no longer valid}",
@@ -105,7 +106,7 @@ If necessary, you may also use the supplied access bearer token to retrieve the 
 
 ```
 Authorization: Bearer {access token}
-GET/POST https://datarock.com/userinfo
+GET/POST https://api.datarock.com/userinfo
 ```
 
 | Parameter | Definition |
