@@ -25,6 +25,9 @@ GET https://auth.datarock.com/authorize?
 | `code_challenge_method` | The hashing method used to generate the `code_challenge`.  The spec allows for either `S256` (SHA-256) or `plain`, but `S256` is the more secure option and should be used in all cases. |
 | `state` | Any value the client application needs to record the current state of the user session.  Typically used to record the page the user is trying to access. |
 
+Note: URL Safe Base 64-encoded hash can be aquired by replacing `+` with `-`, `/` with `_` and remove `=`.
+Example code: `crypto.createHash('sha256').update(CODE_VERIFIER).digest('base64').replace(/\+/g, '-').replace(/\//, '_').replace(/=/, '')` 
+
 ## II. Receive the SSO Response
 Once the user completes the OAuth2 SSO process, the browser will be redirected back to the specified `redirect_uri` with either a token that can be used to authenticate the user, or error details if an error occurred.
 
