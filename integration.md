@@ -66,7 +66,7 @@ In response to this request, DataRock will replay with a standard OAuth2 Access 
 	"token_type":"access",
 	"expires_in":{some integer number},
 	"refresh_token":"{the supplied refresh token}",
-	"scope":"{value provided by client}",
+	"state":"{value provided by client}",
 	"id_token":"{the supplied id token}"
 }
 ```
@@ -76,7 +76,7 @@ In response to this request, DataRock will replay with a standard OAuth2 Access 
 | `token_type` | Indicates the returned token is an access token. |
 | `expires_in` | The number of seconds for which the access token is valid, after which time the supplied refresh token should be used to request a new access token. |
 | `refresh_token` | A token that can be used to request updated credentials. |
-| `scope` | Whatever value was supplied to DataRock in the initial SSO request. |
+| `state` | Whatever value was supplied to DataRock in the initial SSO request. |
 | `id_token` | An OpenID Connect ID token, which provides details about the authenticated user and the approved claims. |
 
 ## IV. Inspect the ID Token
